@@ -1,0 +1,22 @@
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\bin\Debug\LiveChart demo.exe.config
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\bin\Debug\LiveChart demo.exe
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\bin\Debug\LiveChart demo.pdb
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\bin\Debug\LiveCharts.dll
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\bin\Debug\LiveCharts.pdb
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\bin\Debug\LiveCharts.xml
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\obj\Debug\LiveChart demo.csprojAssemblyReference.cache
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\obj\Debug\MainWindow.g.cs
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\obj\Debug\App.g.cs
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\obj\Debug\LiveChart demo_MarkupCompile.cache
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\obj\Debug\LiveChart demo_MarkupCompile.lref
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\obj\Debug\MainWindow.baml
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\obj\Debug\LiveChart demo.g.resources
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\obj\Debug\LiveChart_demo.Properties.Resources.resources
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\obj\Debug\LiveChart demo.csproj.GenerateResource.cache
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\obj\Debug\LiveChart demo.csproj.CoreCompileInputs.cache
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\obj\Debug\LiveChart demo.csproj.CopyComplete
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\obj\Debug\LiveChart demo.exe
+C:\Users\付准\Desktop\物联网大赛\LiveChart\LiveChart-demo\LiveChart demo\obj\Debug\LiveChart demo.pdb

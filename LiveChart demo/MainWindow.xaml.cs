@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,100 +15,61 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LiveCharts;
 using LiveCharts.Configurations;
+using LiveCharts.Wpf;
 
 namespace LiveChart_demo
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
-     // 数据点格式
-    public class MeasureModel
-    {
-        public int Index { get; set; }
-        public float Value { get; set; }
-    }
-
-    public partial class ConstantChangesChart : UserControl
-    {
-        private int _index;
-        public ChartValues<MeasureModel> PhaseChartValues { get; set; }
-        public ChartValues<MeasureModel> ModulusChartValues { get; set; }
-        public float PhaseValue { get; set; }
-        public float ModulusValue { get; set; }
-
-        // 当数值被更改时，触发更新
-        public int Index
-        {
-            get { return _index; }
-            set
-            {
-                _index = value;
-                Read();
-            }
-        }
-
-        public ConstantChangesChart()
-        {
-            
-
-            // 设置图表的XY和数值对应
-            var mapper = Mappers.Xy<MeasureModel>()
-                .X(model => model.Index)
-                .Y(model => model.Value);
-            Charting.For<MeasureModel>(mapper);
-            PhaseChartValues = new ChartValues<MeasureModel>();
-            ModulusChartValues = new ChartValues<MeasureModel>();
-
-            DataContext = this;
-        }
-
-        // 更新图表
-        private void Read()
-        {
-            PhaseChartValues.Add(new MeasureModel
-            {
-                Index = this.Index,
-                Value = this.PhaseValue
-            });
-            ModulusChartValues.Add(new MeasureModel
-            {
-                Index = this.Index,
-                Value = this.ModulusValue
-            });
-
-            // 限定图表最多只有十五个元素
-            if (PhaseChartValues.Count > 15)
-            {
-                PhaseChartValues.RemoveAt(0);
-                ModulusChartValues.RemoveAt(0);
-            }
-        }
-    }
     public partial class MainWindow : Window
     {
-        private int index = 0;
+        public SeriesCollection SeriesCollection { get; set; }//折线图
+        public List<string> Labels { get; set; }//横坐标
+        private double _trend;
+        private double[] temp = { 1, 3, 2, 4, -3, 5, 2, 1 };
         public MainWindow()
         {
             InitializeComponent();
-            Task.Factory.StartNew(RecordData);
+            LineSeries mylineseries = new LineSeries();//实例化一条折线图
+            mylineseries.Title = "Temp";//设置折线的标题
+            mylineseries.LineSmoothness = 0;//折线图直线形式
+            mylineseries.PointGeometry = null;//折线图的无点样式
+            Labels = new List<string> { "1", "3", "2", "4", "-3", "5", "2", "1" };//添加横坐标,初始横坐标   
+            mylineseries.Values = new ChartValues<double>(temp);//添加纵坐标数据，初始纵坐标
+            SeriesCollection = new SeriesCollection { };
+            SeriesCollection.Add(mylineseries);
+            //_trend = 8;
+            linestart();
+            DataContext = this;
         }
-        private void RecordData()
+        //连续折线图的方法
+        public void linestart()
         {
-            // 持续生成随机数，模拟数据处理过程
-            while (true)
+            Task.Run(() =>
             {
-                Thread.Sleep(500);
-                var r = new Random();
-                float phase = r.Next(1, 7);
-                float modulus = r.Next(1, 10);
-                // 更新图表数据
-                constantChangesChart.PhaseValue = phase;
-                constantChangesChart.ModulusValue = modulus;
-                constantChangesChart.Index = index++;
-            }
+                var r = new Random();//随机函数
+                while (true)
+                {
+                    Thread.Sleep(1000);//刷新间隔时间
+                    _trend = r.Next(-10, 10);//随机数产生y值
+                    //通过Dispatcher在工作线程中更新窗体的UI元素
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        //更新横坐标时间
+                        Labels.Add(DateTime.Now.ToString());//添加横坐标时间数据值
+                        Labels.RemoveAt(0);
+                        //更新纵坐标数据
+                        SeriesCollection[0].Values.Add(_trend);//添加y值，_trend为数据
+                        SeriesCollection[0].Values.RemoveAt(0);
+                    });
+                }
+            });
         }
+       
+     
 
-    }
+     }
 
     
 }
